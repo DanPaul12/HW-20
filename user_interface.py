@@ -1,17 +1,22 @@
+from books import Books
+from users import Users
+from genres import Genres
+from genres import Authors
+
 class UserInterface:
     def book_operations():
         while True:
             command = int(input(f"Book Operations:\n1. Add a new book\n2. Borrow a book\n3. Return a book\n4. Search for a book\n5. Display all books"))
             if command == 1:
-                pass
+                Books.add_book()
             elif command == 2:
-                pass
+                Books.borrow_book()
             elif command == 3:
-                pass
+                Books.return_book()
             elif command == 4:
-                pass
+                Books.search_books()
             elif command == 5:
-                pass
+                Books.display_books()
             else:
                 print("Invalid command")
 
@@ -19,11 +24,11 @@ class UserInterface:
         while True:
             command = int(input(f"User Operations:\n1. Add a new user\n2. View user details\n3. Display all users"))
             if command == 1:
-                pass
+                Users.add_user()
             elif command == 2:
-                pass
+                Users.search_users()
             elif command == 3:
-                pass
+                Users.display_users()
             else:
                 print("Invalid command")
 
@@ -31,11 +36,11 @@ class UserInterface:
         while True:
             command = int(input(f"Author Operations:\n1. Add a new author\n2. View author details\n3. Display all authors"))
             if command == 1:
-                pass
+                Authors.add_author()
             elif command == 2:
-                pass
+                Authors.search_author()
             elif command == 3:
-                pass
+                Authors.display_authors()
             else:
                 print("Invalid command")
 
@@ -43,10 +48,13 @@ class UserInterface:
         while True:
             command = int(input(f"Genre Operations:\n1. Add a new genre\n2. View genre details\n3. Display all genres"))
             if command == 1:
-                pass
+                Genres.add_genre()
             elif command == 2:
-                pass
+                Genres.search_genres()
             elif command == 3:
-                pass
+                Genres.display_genres()
             else:
                 print("Invalid command")
+
+user_interface = UserInterface()
+user_interface.book_operations
