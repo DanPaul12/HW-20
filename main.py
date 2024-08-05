@@ -2,7 +2,7 @@ from user_interface import UserInterface
 
 def main():
     while True:
-        command = input(f"Welcome to the Library Management System!\nMain Menu:\n1. Book Operations\n2. User Operations\n3. Author Operations\n4. Genre Operations\n5. Quit")
+        command = int(input(f"Welcome to the Library Management System!\nMain Menu:\n1. Book Operations\n2. User Operations\n3. Author Operations\n4. Genre Operations\n5. Quit\nPlease enter a number 1-5: "))
         if command == 1:
             UserInterface.book_operations()
         elif command == 2:

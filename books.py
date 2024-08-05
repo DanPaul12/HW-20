@@ -36,8 +36,3 @@ class Books:
         for title in self.books:
             print(self.books[title])
 
-books = Books()
-    
-books.add_book() 
-books.borrow_book()
-books.display_books()

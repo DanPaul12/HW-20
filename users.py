@@ -17,8 +17,3 @@ class Users:
         for name in self.users:
             print(self.users[name])
 
-books = Books()
-    
-books.add_book() 
-books.borrow_book()
-books.display_books()

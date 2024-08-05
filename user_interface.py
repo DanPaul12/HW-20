@@ -56,5 +56,3 @@ class UserInterface:
             else:
                 print("Invalid command")
 
-user_interface = UserInterface()
-user_interface.book_operations
