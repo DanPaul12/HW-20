@@ -9,7 +9,7 @@ class Genres:
         print(self.genres[name])
 
     def search_genres(self):
-        genre = input("What is the title of the book you're searching for?")
+        genre = input("What is the name of the genre you're searching for?")
         if genre in self.genres:
             print(self.genres[genre])
 
@@ -29,7 +29,7 @@ class Authors:
         print(self.authors[name])
 
     def search_author(self):
-        author = input("What is the title of the book you're searching for?")
+        author = input("What is the name of the author you're searching for?")
         if author in self.authors:
             print(self.authors[author])
 

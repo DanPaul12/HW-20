@@ -13,7 +13,7 @@ class Books:
         title = input("What is the title of the book?: ")
         if title in self.books:
             self.books[title]["availability"] = False
-            print("Book checked out")
+            print("{title} checked out")
         else:
             print("Book not found")
 
@@ -21,7 +21,7 @@ class Books:
         title = input("What is the title of the book?: ")
         if title in self.books:
             if self.books[title]["availability"] == False:
-                print("Book returned")
+                print("{title} returned")
             else:
                 print("Book is already there you must be confused")
         else:

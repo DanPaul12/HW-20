@@ -4,12 +4,12 @@ class Users:
  
     def add_user(self):
         name = input("What is user's name?: ")
-        libID = input("What is your id number?: ")
+        libID = input("What is user's id number?: ")
         self.users[name]= {"name":name, "Library ID":libID}
         print(self.users[name])
         
     def search_users(self):
-        user = input("What is the title of the book you're searching for?")
+        user = input("What is the name of the user you're searching for?")
         if user in self.books:
             print(self.users[user])
 
