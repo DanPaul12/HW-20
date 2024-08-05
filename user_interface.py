@@ -6,7 +6,7 @@ from genres import Authors
 class UserInterface:
     def book_operations():
         while True:
-            command = int(input(f"Book Operations:\n1. Add a new book\n2. Borrow a book\n3. Return a book\n4. Search for a book\n5. Display all books"))
+            command = int(input(f"Book Operations:\n1. Add a new book\n2. Borrow a book\n3. Return a book\n4. Search for a book\n5. Display all books\nPlease enter a number 1-5: "))
             if command == 1:
                 Books.add_book()
             elif command == 2:
@@ -22,7 +22,7 @@ class UserInterface:
 
     def user_operations():
         while True:
-            command = int(input(f"User Operations:\n1. Add a new user\n2. View user details\n3. Display all users"))
+            command = int(input(f"User Operations:\n1. Add a new user\n2. View user details\n3. Display all users\nPlease enter a number 1-3: "))
             if command == 1:
                 Users.add_user()
             elif command == 2:
@@ -34,7 +34,7 @@ class UserInterface:
 
     def author_operations():
         while True:
-            command = int(input(f"Author Operations:\n1. Add a new author\n2. View author details\n3. Display all authors"))
+            command = int(input(f"Author Operations:\n1. Add a new author\n2. View author details\n3. Display all authors\nPlease enter a number 1-3: "))
             if command == 1:
                 Authors.add_author()
             elif command == 2:
@@ -46,7 +46,7 @@ class UserInterface:
 
     def genre_operations():
         while True:
-            command = int(input(f"Genre Operations:\n1. Add a new genre\n2. View genre details\n3. Display all genres"))
+            command = int(input(f"Genre Operations:\n1. Add a new genre\n2. View genre details\n3. Display all genres\nPlease enter a number 1-3: "))
             if command == 1:
                 Genres.add_genre()
             elif command == 2:
