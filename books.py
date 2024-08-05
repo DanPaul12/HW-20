@@ -30,7 +30,7 @@ class Books:
     def search_books(self):
         title = input("What is the title of the book you're searching for?")
         if title in self.books:
-            print(self.books[title])
+            print(self.books.get(title))
 
     def display_books(self):
         for title in self.books:
