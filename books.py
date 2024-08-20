@@ -15,6 +15,8 @@ class Books:
                 query = "INSERT INTO books Values (%s, %s, %s)"
                 values = title, author_id, isbn
                 cursor.execute(query, values)
+                conn.commit()
+                print("Book added succesfully")
             finally:
                 cursor.close()
                 conn.close()

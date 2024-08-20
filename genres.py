@@ -1,12 +1,23 @@
+from sql_connect import connect_database
+
 class Genres:
     def __init__(self):
         self.genres = {}
  
     def add_genre(self):
-        name = input("What is the genre's name?: ")
-        info = input("What is the genre's description?: ")
-        self.genres[name]= {"name":name, "description":info}
-        print(self.genres[name])
+        conn = connect_database()
+        if conn is not None:
+            try:
+                cursor = conn.cursor()
+                name = input("What is the genre's name?: ")
+                info = input("What is the genre's description?: ")
+                query = "INSERT INTO Authors Values (%s, %s)"
+                values = name, info
+                cursor.execute(query, values)
+                conn.commit()
+            finally:
+                cursor.close()
+                conn.close()
 
     def search_genres(self):
         genre = input("What is the name of the genre you're searching for?")
@@ -23,10 +34,20 @@ class Authors:
         self.authors = {}
  
     def add_author(self):
-        name = input("What is the author's name?: ")
-        info = input("What is the autor's info?: ")
-        self.authors[name]= {"name":name, "description":info}
-        print(self.authors[name])
+        conn = connect_database()
+        if conn is not None:
+            try:
+                cursor = conn.cursor()
+                name = input("What is the author's name?: ")
+                info = input("What is the autor's info?: ")
+                query = "INSERT INTO Authors Values (%s, %s)"
+                values = name, info
+                cursor.execute(query, values)
+                conn.commit()
+            finally:
+                cursor.close()
+                conn.close()
+                
 
     def search_author(self):
         author = input("What is the name of the author you're searching for?")
