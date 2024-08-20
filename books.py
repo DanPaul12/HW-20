@@ -5,7 +5,7 @@ class Books:
         self.books = {}
  
     def add_book(self):
-        conn = connect_database
+        conn = connect_database()
         if conn is not None:
             try:
                 cursor = conn.cursor()
