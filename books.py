@@ -9,12 +9,13 @@ class Books:
         if conn is not None:
             try:
                 cursor = conn.cursor()
+                book_id = int(input("What is the book id?: "))
                 title = input("What is the title?: ")
                 author_id = int(input("What is author's id?: "))
                 isbn = input("What is the ISBN?: ")
                 availability = True
-                query = "INSERT INTO books Values (%s, %s, %s, %s)"
-                values = title, author_id, isbn, availability
+                query = "INSERT INTO books Values (%s, %s, %s, %s, %s)"
+                values = book_id, title, author_id, isbn, availability
                 cursor.execute(query, values)
                 conn.commit()
                 print("Book added succesfully")
