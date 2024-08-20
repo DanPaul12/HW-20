@@ -1,13 +1,23 @@
+from sql_connect import connect_database
+
 class Books:
     def __init__(self):
         self.books = {}
  
     def add_book(self):
-        title = input("What is the title?: ")
-        author = input("Who is the author?: ")
-        isbn = input("What is the ISBN?: ")
-        self.books[title]= {"title":title, "author":author, "ISBN":isbn, "availability": True}
-        print(self.books[title])
+        conn = connect_database
+        if conn is not None:
+            try:
+                cursor = conn.cursor()
+                title = input("What is the title?: ")
+                author_id = int(input("What is author's id?: "))
+                isbn = input("What is the ISBN?: ")
+                query = "INSERT INTO books Values (%s, %s, %s)"
+                values = title, author_id, isbn
+                cursor.execute(query, values)
+            finally:
+                cursor.close()
+                conn.close()
     
     def borrow_book(self):
         title = input("What is the title of the book?: ")
