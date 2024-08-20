@@ -12,8 +12,9 @@ class Books:
                 title = input("What is the title?: ")
                 author_id = int(input("What is author's id?: "))
                 isbn = input("What is the ISBN?: ")
-                query = "INSERT INTO books Values (%s, %s, %s)"
-                values = title, author_id, isbn
+                availability = True
+                query = "INSERT INTO books Values (%s, %s, %s, %s)"
+                values = title, author_id, isbn, availability
                 cursor.execute(query, values)
                 conn.commit()
                 print("Book added succesfully")

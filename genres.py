@@ -40,10 +40,12 @@ class Authors:
                 cursor = conn.cursor()
                 name = input("What is the author's name?: ")
                 info = input("What is the autor's info?: ")
-                query = "INSERT INTO Authors Values (%s, %s)"
-                values = name, info
+                id = int(input("What is author's id?"))
+                query = "INSERT INTO authors (id, name, biography) Values (%s, %s, %s)"
+                values = id, name, info
                 cursor.execute(query, values)
                 conn.commit()
+                print("Author added")
             finally:
                 cursor.close()
                 conn.close()
