@@ -1,4 +1,5 @@
 from sql_connect import connect_database
+from sql_connect import Error
 
 class Users:
     def __init__(self):
@@ -23,9 +24,21 @@ class Users:
                 
         
     def search_users(self):
-        user = input("What is the name of the user you're searching for?")
-        if user in self.books:
-            print(self.users[user])
+        conn = connect_database()
+        if conn is not None:
+            try:
+                cursor = conn.cursor()
+                user = input("What is the name of the user you're searching for?")
+                query = "SELECT %s from users"
+                cursor.execute(query, user)
+                conn.commit()
+                for row in cursor.fetchall():
+                    print(row)
+            except Error:
+                print({Error})
+            finally:
+                cursor.close()
+                conn.close()
 
     def display_users(self):
         for name in self.users:

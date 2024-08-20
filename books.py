@@ -1,4 +1,5 @@
 from sql_connect import connect_database
+from sql_connect import Error
 
 class Books:
     def __init__(self):
@@ -19,34 +20,41 @@ class Books:
                 cursor.execute(query, values)
                 conn.commit()
                 print("Book added succesfully")
+            except Error:
+                print({Error})
             finally:
                 cursor.close()
                 conn.close()
     
     def borrow_book(self):
-        title = input("What is the title of the book?: ")
-        if title in self.books:
-            self.books[title]["availability"] = False
-            print("{title} checked out")
-        else:
-            print("Book not found")
-
-    def return_book(self):
-        title = input("What is the title of the book?: ")
-        if title in self.books:
-            if self.books[title]["availability"] == False:
-                print("{title} returned")
-            else:
-                print("Book is already there you must be confused")
-        else:
-            print("Book not found")
-
-    def search_books(self):
-        title = input("What is the title of the book you're searching for?")
-        if title in self.books:
-            print(self.books.get(title))
+        conn = connect_database()
+        if conn is not None:
+            try:
+                cursor = conn.cursor()
+                book_id = int(input("What is the book id?: "))
+                query = "Set availability = %s WHERE book_id = %s"
+                values = 0, book_id
+                cursor.execute(query, values)
+                conn.commit()
+                print("Book borrowed succesfully")
+            except Error:
+                print({Error})
+            finally:
+                cursor.close()
+                conn.close()
 
     def display_books(self):
-        for title in self.books:
-            print(self.books[title])
-
+        conn = connect_database()
+        if conn is not None:
+            try:
+                cursor = conn.cursor()
+                query = "SELECT * from books"
+                cursor.execute(query)
+                conn.commit()
+                for row in cursor.fetchall():
+                    print(row)
+            except Error:
+                print({Error})
+            finally:
+                cursor.close()
+                conn.close()
