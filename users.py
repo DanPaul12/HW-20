@@ -41,6 +41,18 @@ class Users:
                 conn.close()
 
     def display_users(self):
-        for name in self.users:
-            print(self.users[name])
+        conn = connect_database()
+        if conn is not None:
+            try:
+                cursor = conn.cursor(buffered = True)
+                query = "SELECT * from users"
+                cursor.execute(query)
+                conn.commit()
+                for row in cursor.fetchall():
+                    print(row)
+            except Error as e:
+                print({e})
+            finally:
+                cursor.close()
+                conn.close()
 
