@@ -47,7 +47,7 @@ class Books:
         conn = connect_database()
         if conn is not None:
             try:
-                cursor = conn.cursor()
+                cursor = conn.cursor(buffered = True)
                 query = "SELECT * from books"
                 cursor.execute(query)
                 conn.commit()
