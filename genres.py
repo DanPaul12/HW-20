@@ -33,10 +33,10 @@ class Authors:
             try:
                 cursor = conn.cursor(buffered = True)
                 query = "SELECT %s from authors"
-                author = input("Which author are you searching for?: ")
+                author = int(input("What is the author's id?: "))
                 cursor.execute(query, author)
                 conn.commit()
-                for row in cursor.fetchone():
+                for row in cursor.fetchall():
                     print(row)
             except Error as e:
                 print({e})
