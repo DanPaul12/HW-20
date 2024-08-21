@@ -33,7 +33,7 @@ class Authors:
             try:
                 cursor = conn.cursor(buffered = True)
                 query = "SELECT %s from authors"
-                author = int(input("What is the author's id?: "))
+                author = input("What is the author's id?: ")
                 cursor.execute(query, author)
                 conn.commit()
                 for row in cursor.fetchall():
