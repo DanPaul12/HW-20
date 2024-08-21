@@ -36,7 +36,7 @@ class Authors:
                 author = input("Which author are you searching for?: ")
                 cursor.execute(query, author)
                 conn.commit()
-                for row in cursor.fetchall():
+                for row in cursor.fetchone():
                     print(row)
             except Error as e:
                 print({e})
