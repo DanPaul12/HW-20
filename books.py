@@ -51,7 +51,7 @@ class Books:
                 query = "SELECT * from books"
                 cursor.execute(query)
                 conn.commit()
-                for row in cursor.fetchall():
+                for row in cursor.fetchone():
                     print(row)
             except Error:
                 print({Error})
