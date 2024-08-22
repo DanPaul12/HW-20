@@ -37,8 +37,8 @@ class Books:
                 cursor.execute(query, values)
                 conn.commit()
                 print("Book borrowed succesfully")
-            except Error:
-                print({Error})
+            except Error as e:
+                print({e})
             finally:
                 cursor.close()
                 conn.close()
