@@ -43,6 +43,23 @@ class Books:
                 cursor.close()
                 conn.close()
 
+    def search_books():
+        conn = connect_database()
+        if conn is not None:
+            try:
+                cursor = conn.cursor(buffered = True)
+                query = "SELECT title from books where id = %s"
+                book = input("What is the book's id?: ")
+                cursor.execute(query, (book,))
+                conn.commit()
+                for row in cursor.fetchall():
+                    print(row)
+            except Error as e:
+                print({e})
+            finally:
+                cursor.close()
+                conn.close()
+
     def display_books(self):
         conn = connect_database()
         if conn is not None:

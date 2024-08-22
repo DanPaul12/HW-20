@@ -28,9 +28,9 @@ class Users:
         if conn is not None:
             try:
                 cursor = conn.cursor()
-                user = input("What is the name of the user you're searching for?")
-                query = "SELECT %s from users"
-                cursor.execute(query, user)
+                user = input("What is the id of the user you're searching for?")
+                query = "SELECT name from users where id = %s"
+                cursor.execute(query, (user,))
                 conn.commit()
                 for row in cursor.fetchall():
                     print(row)
