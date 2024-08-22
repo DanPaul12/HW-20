@@ -30,9 +30,9 @@ class Books:
         conn = connect_database()
         if conn is not None:
             try:
-                cursor = conn.cursor()
+                cursor = conn.cursor(buffered = True)
                 book_id = input("What is the book id?: ")
-                query = "Set availability = %s WHERE book_id = %s"
+                query = "SET availability = %s WHERE book_id = %s"
                 values = 0, book_id
                 cursor.execute(query, values)
                 conn.commit()
