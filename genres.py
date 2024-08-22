@@ -2,8 +2,7 @@ from sql_connect import connect_database
 from sql_connect import Error
 
 class Genres:
-    def __init__(self):
-        self.genres = {}
+    pass
 
 class Authors:
     def __init__(self):

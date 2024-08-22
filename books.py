@@ -43,6 +43,23 @@ class Books:
                 cursor.close()
                 conn.close()
 
+    def return_book(self):
+        conn = connect_database()
+        if conn is not None:
+            try:
+                cursor = conn.cursor(buffered = True)
+                book_id = input("What is the book id?: ")
+                query = "UPDATE books SET availability = %s WHERE id = %s"
+                values = 1, book_id
+                cursor.execute(query, values)
+                conn.commit()
+                print("Book returned succesfully")
+            except Error as e:
+                print({e})
+            finally:
+                cursor.close()
+                conn.close()
+
     def search_books(self):
         conn = connect_database()
         if conn is not None:
