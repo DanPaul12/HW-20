@@ -31,7 +31,7 @@ class Books:
         if conn is not None:
             try:
                 cursor = conn.cursor()
-                book_id = int(input("What is the book id?: "))
+                book_id = input("What is the book id?: ")
                 query = "Set availability = %s WHERE book_id = %s"
                 values = 0, book_id
                 cursor.execute(query, values)
