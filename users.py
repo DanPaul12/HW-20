@@ -27,7 +27,7 @@ class Users:
         conn = connect_database()
         if conn is not None:
             try:
-                cursor = conn.cursor()
+                cursor = conn.cursor(buffered = True)
                 user = input("What is the id of the user you're searching for?")
                 query = "SELECT name from users where id = %s"
                 cursor.execute(query, (user,))
