@@ -43,7 +43,7 @@ class Books:
                 cursor.close()
                 conn.close()
 
-    def search_books():
+    def search_books(self):
         conn = connect_database()
         if conn is not None:
             try:
