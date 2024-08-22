@@ -32,7 +32,7 @@ class Books:
             try:
                 cursor = conn.cursor(buffered = True)
                 book_id = input("What is the book id?: ")
-                query = "UPDATE books SET availability = %s WHERE book_id = %s"
+                query = "UPDATE books SET availability = %s WHERE id = %s"
                 values = 0, book_id
                 cursor.execute(query, values)
                 conn.commit()
