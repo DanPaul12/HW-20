@@ -34,7 +34,7 @@ class Authors:
                 cursor = conn.cursor(buffered = True)
                 query = "SELECT name from authors where id = %s"
                 author = input("What is the author's id?: ")
-                cursor.execute(query, author)
+                cursor.execute(query, (author,))
                 conn.commit()
                 for row in cursor.fetchall():
                     print(row)
