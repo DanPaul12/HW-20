@@ -32,7 +32,7 @@ class Authors:
         if conn is not None:
             try:
                 cursor = conn.cursor(buffered = True)
-                query = "SELECT %s from authors"
+                query = "SELECT name from authors where id = %s"
                 author = input("What is the author's id?: ")
                 cursor.execute(query, author)
                 conn.commit()
